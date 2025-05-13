@@ -4,39 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESTTESTTEST</title>
+    <title>你的阿韭好朋友上線囉！</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>說話，阿韭在聽</h1>
-    <input id="stock-symbol" placeholder="請輸入股票代碼（EX.2330.TW、APPL）"/>
-    <button onclick="analyze()">阿韭說話</button>
+    <div id="loading-overlay">
+        <div class = "spinner"></div>
+    </div>
 
-    <h3>近期摘要：</h3>
-    <pre id="analyze_normal"></pre>
-    <h3>圖表：</h3>
-    <img id = "plt" style="max-width:500px;"/>
-    <h3>阿韭點評近日狀況：</h3>
-    <pre id="analyze_9"></pre>
+    <div class="container">
+        <div class="left-panel">
+            <div class="chart-box">
+                <img id="plt" alt="K線圖"/>
+            </div>
+            <div class="summary-box">
+                <div id="analyze_normal"></div>
+            </div>    
+        </div>
+        <div class="right-panel">
+            <div class="opinion-box">
+                <h2>阿韭跟你說</h2>
+                <div id="analyze_9"></div>
+            </div>
+            <div class="history-box">
+                <h3>阿韭曾經跟你說</h3>
+                <ul id="history-list"></ul>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        function analyze(){
-            const symbol = document.getElementById("stock-symbol").value;
-            
-            fetch("https://beststockhelper.onrender.com/analyze", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ symbol })
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log("摘要：", data.analyze_normal);
-                console.log("點評：", data.analyze_9);
-                document.getElementById("analyze_normal").textContent = data.analyze_normal || "錯誤：" + data.error;
-                document.getElementById("analyze_9").textContent = data.analyze_9 || "錯誤：" + data.error;
-                document.getElementById("plt").src = `data:image/png;base64,${data.plt}`;
-            });
-        }
-    </script>
-    
+    <div id="floationg-input" class="draggable">
+        <input type="text" id="stock-symbol" placeholder="輸入股票代碼（例如；0050.TW, APPL等等）">
+        <button onclick="analyze()">查詢</button>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
 </body>
 </html>
