@@ -113,7 +113,7 @@ function showPopup(opinionText){
     popup.classList.remove("hidden");
 }
 function closePopup(){
-    const popup = ddocument.getElementById("history-popup");
+    const popup = document.getElementById("history-popup");
     popup.classList.add("hidden");
 }
 
