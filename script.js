@@ -94,11 +94,10 @@ function renderHistory(){
     const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
     const list = document.getElementById("history-list");
     list.innerHTML = "";
-    history.forEach((entry,index)=>{
+    history.forEach(entry=>{
         const li = document.createElement("li");
         li.textContent = entry.symbol;
         li.style.cursor = "pointer";
-        li.dataset.index = index;
         li.onclick = () =>{
             showPopup(entry.opinion);
         };
@@ -119,4 +118,5 @@ function closePopup(){
 
 window.addEventListener("DOMContentLoaded",()=>{
     renderHistory();
+    console.log("初始化完畢")
 });
