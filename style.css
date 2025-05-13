@@ -58,6 +58,41 @@ body{
     height: 48%;
     overflow-y: auto;
 }
+.history-box {
+    width: 20%;
+    background: linear-gradient(to bottom, #fce4ec,#f8bbd0);
+    padding: 15px;
+    overflow-y:auto;
+    border-left: 2px solid #f48fb1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: -2px 0 6px rgba(0,0,0,0.1);
+}
+.history-box h3 {
+    font-size: 18px;
+    color: #880e4f;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f06292;
+    padding-bottom: 5px;
+}
+#history-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#history-list li{
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #880e4f;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 15px;
+}
+#history-list li:hover {
+    background: #f8bbd0;
+}
 
 #floating-input{
     position:fixed;
