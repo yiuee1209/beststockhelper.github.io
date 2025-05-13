@@ -90,7 +90,7 @@ function updateHistory(symbol,opinion){
     renderHistory();
 }
 
-function {
+function renderHistory(){
     const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
     const list = document.getElementById("history-list");
     list.innerHTML = "";
