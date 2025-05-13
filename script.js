@@ -17,6 +17,7 @@ document.addEventListener("mousemove",(e)=>{
     if (isDragging){
         floatingInput.style.left = e.clientX + offset.x + "px";
         floatingInput.style.top = e.clientY +offset.y + "px";
+        floatingInput.style.bottom = "auto";
     };
 });
 
