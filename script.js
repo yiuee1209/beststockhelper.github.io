@@ -90,7 +90,7 @@ function updateHistory(symbol,opinion){
     renderHistory();
 }
 
-function renderHistory(){
+function {
     const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
     const list = document.getElementById("history-list");
     list.innerHTML = "";
@@ -117,4 +117,6 @@ function closePopup(){
     popup.classList.add("hidden");
 }
 
-window.onload = renderHistory;
+window.addEventListener("DOMContentLoaded",()=>{
+    renderHistory();
+});
