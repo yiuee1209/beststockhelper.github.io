@@ -13,6 +13,8 @@
 
     <h3>近期摘要：</h3>
     <pre id="analyze_month"></pre>
+    <h3>一定會死但我直接放看看：</h3>
+    <pre id="plt"></pre>
     <h3>阿韭點評近日狀況：</h3>
     <pre id="analyze_day"></pre>
 
@@ -31,6 +33,7 @@
                 console.log("點評：", data.analyze_day);
                 document.getElementById("analyze_month").textContent = data.analyze_month || "錯誤：" + data.error;
                 document.getElementById("analyze_day").textContent = data.analyze_day || "錯誤：" + data.error;
+                document.getElementById("plt").textContent = data.plt || "錯誤：" + data.error;
             });
         }
     </script>
