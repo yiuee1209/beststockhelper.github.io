@@ -24,6 +24,22 @@ function showLoading(show){
     document.getElementById("loading-overlay").style.display = show ? "flex" : "none";
 }
 
+
+const customRenderer = new marked.Renderer();
+customRenderer.link = function(href, title, text) {
+  let html = `<a href="${href}"`;
+  if (title) {
+    html += ` title="${title}"`;
+  }
+  html += ` target="_blank" rel="noopener noreferrer">${text}</a>`;
+  return html;
+};
+
+marked.setOptions({
+  renderer: customRenderer
+});
+
+
 function analyze(){
     const symbol = document.getElementById("stock-symbol").value.trim();
     if(!symbol){
