@@ -1,3 +1,8 @@
+window.addEventListener("DOMContentLoaded",()=>{
+    renderHistory();
+    console.log("初始化完畢")
+});
+
 const floatingInput = document.getElementById("floating-input");
 let offset = {x:0, y:0};
 let isDragging = false;
@@ -115,8 +120,3 @@ function closePopup(){
     const popup = document.getElementById("history-popup");
     popup.classList.add("hidden");
 }
-
-window.addEventListener("DOMContentLoaded",()=>{
-    renderHistory();
-    console.log("初始化完畢")
-});
