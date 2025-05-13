@@ -27,7 +27,7 @@
                 <div id="analyze_9"></div>
             </div>
             <div class="history-box">
-                <h3>你才問過：</h3>
+                <h3>你才問過不要浪費我流量：</h3>
                 <ul id="history-list"></ul>
             </div>
         </div>
@@ -38,6 +38,11 @@
         <button onclick="analyze()">查詢</button>
     </div>
 
+    <div id="history-popup" class="popup hidden">
+        <button class="close-btn" onclick="closePupup()"></button>
+        <div id= "popup-content"></div>
+    </div>
+    
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/lib/marked.umd.min.js"></script>
 
