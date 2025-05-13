@@ -12,11 +12,11 @@
     <button onclick="analyze()">阿韭說話</button>
 
     <h3>近期摘要：</h3>
-    <pre id="analyze_month"></pre>
-    <h3>一定會死但我直接放看看：</h3>
-    <pre id="plt"></pre>
+    <pre id="analyze_normal"></pre>
+    <h3>圖表：</h3>
+    <img id = "plt" style="max-width:500px;"/>
     <h3>阿韭點評近日狀況：</h3>
-    <pre id="analyze_day"></pre>
+    <pre id="analyze_9"></pre>
 
     <script>
         function analyze(){
@@ -29,11 +29,11 @@
             })
             .then(res => res.json())
             .then(data => {
-                console.log("摘要：", data.analyze_month);
-                console.log("點評：", data.analyze_day);
-                document.getElementById("analyze_month").textContent = data.analyze_month || "錯誤：" + data.error;
-                document.getElementById("analyze_day").textContent = data.analyze_day || "錯誤：" + data.error;
-                document.getElementById("plt").textContent = data.plt || "錯誤：" + data.error;
+                console.log("摘要：", data.analyze_normal);
+                console.log("點評：", data.analyze_9);
+                document.getElementById("analyze_normal").textContent = data.analyze_normal || "錯誤：" + data.error;
+                document.getElementById("analyze_9").textContent = data.analyze_9 || "錯誤：" + data.error;
+                document.getElementById("plt").src = `data:image/png;base64,${data.plt}`;
             });
         }
     </script>
