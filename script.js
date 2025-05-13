@@ -108,7 +108,8 @@ function renderHistory(){
 function showPopup(opinionText){
     const popup = document.getElementById("history-popup");
     const content = document.getElementById("popup-content");
-    content.textContent = opinionText || "（抱歉，腦容量不足，想不起來。）";
+    //content.textContent = opinionText || "（抱歉，腦容量不足，想不起來。）";
+    content.innerHTML =  marked.parse(opinionText) || "（抱歉，腦容量不足，想不起來。）";
     popup.classList.remove("hidden");
 }
 function closePopup(){
