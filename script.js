@@ -55,7 +55,7 @@ function analyze(){
     }
 
     showLoading(true);
-    document.getElementById("stock-symbol").innerHTML = "";
+    document.getElementById("stock-symbol").value = "";
     fetch("https://beststockhelper.onrender.com/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
