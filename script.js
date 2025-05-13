@@ -40,10 +40,12 @@ function analyze(){
     })
     .then(res => res.json())
     .then(data => {
-        console.log("摘要：", data.analyze_normal);
-        console.log("點評：", data.analyze_9);
-        document.getElementById("analyze_normal").textContent = data.analyze_normal || "錯誤：" + data.error;
-        document.getElementById("analyze_9").textContent = data.analyze_9 || "錯誤：" + data.error;
+        //console.log("摘要：", data.analyze_normal);
+        //console.log("點評：", data.analyze_9);
+        //document.getElementById("analyze_normal").textContent = data.analyze_normal || "錯誤：" + data.error;
+        document.getElementById("analyze_normal").innerHTML =  marked.parse(data.analyze_normal);
+        //document.getElementById("analyze_9").textContent = data.analyze_9 || "錯誤：" + data.error;
+        document.getElementById("analyze_9").innerHTML =  marked.parse(data.analyze_9);
         document.getElementById("plt").src = `data:image/png;base64,${data.plt}`;
         updateHistory(symbol,data.analyze_9);
     })
