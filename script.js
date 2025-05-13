@@ -37,7 +37,8 @@ customRenderer.link = function(href, title, text) {
 };
 
 marked.setOptions({
-  renderer: customRenderer
+  renderer: customRenderer,
+  breaks: true
 });
 
 
@@ -94,7 +95,7 @@ function renderHistory(){
     const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
     const list = document.getElementById("history-list");
     list.innerHTML = "";
-    history.forEach(entry=>{
+    history.forEach((entry,index)=>{
         const li = document.createElement("li");
         li.textContent = entry.symbol;
         li.style.cursor = "pointer";
