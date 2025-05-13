@@ -81,7 +81,11 @@ body{
     background: transparent;
     width: 200px;
 }
-
+#plt {
+    width:100%;
+    background-color: #ffe6f0;
+    object-fit: contain;
+}
 button {
     background-color: #f48fb1;
     color: white;
