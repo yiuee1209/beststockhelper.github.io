@@ -59,7 +59,7 @@ body{
     overflow-y: auto;
 }
 .history-box {
-    width: 20%;
+    height: 20%;
     background: linear-gradient(to bottom, #fce4ec,#f8bbd0);
     padding: 15px;
     overflow-y:auto;
