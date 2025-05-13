@@ -1,0 +1,118 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #fce4ec);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.left-panel, .right-panel{
+    display: flex;
+    flex-direction: column;
+}
+.left-panel{
+    flex: 2;
+    margin-right: 10px;
+}
+.chart-box{
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 10px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chart-box img{
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    height: 50%;
+    overflow-y: auto;
+    white-space: pre-wrap;    
+}
+.right-panel{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.opinion-box, .history-box{
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 10px;
+    height: 48%;
+    overflow-y: auto;
+}
+
+#floationg-input{
+    position:fixed;
+    bottom:20px;
+    left: 20px;
+    background: rgba(255,255,255,0.9);
+    border: 2px solid #90caf9;
+    border-radius: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 10px;
+    cursor: move;
+    z-index: 999;
+}
+
+#stock-symbol{
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    width: 200px;
+}
+
+button {
+    background-color: #f48fb1;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: #ec407a;
+}
+
+/*spinner for loading*/
+#loading-overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+.spinner{
+    border: 6px solid #e0f2f1;
+    border-top: 6px solid #f48fb1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
