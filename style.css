@@ -59,7 +59,7 @@ body{
     overflow-y: auto;
 }
 
-#floationg-input{
+#floating-input{
     position:fixed;
     bottom:20px;
     left: 20px;
