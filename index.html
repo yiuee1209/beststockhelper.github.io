@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTTESTTEST</title>
+</head>
+<body>
+    <h1>說話，阿韭在聽</h1>
+    <input id="stock-symbol" placeholder="請輸入股票代碼（EX.2330.TW、APPL）"/>
+    <button onclick="analyze()">阿韭說話</button>
+
+    <h3>近期摘要：</h3>
+    <pre id="analyze_month"></pre>
+    <h3>阿韭點評近日狀況：</h3>
+    <pre id="analyze_day"></pre>
+
+    <script>
+        function analyze(){
+            const symbol = document.getElementById("stock-synbol").value;
+            
+            fetch("https://beststockhelper.onrender.com/analyze", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ symbol })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("摘要：", data.analyze_month);
+                console.log("點評：", data.analyze_day);
+                document.getElementById("analyze_month").textContent = data.analyze_month || "錯誤：" + data.error;
+                document.getElementById("analyze_day").textContent = data.analyze_day || "錯誤：" + data.error;
+            });
+        }
+    </script>
+    
+</body>
+</html>
