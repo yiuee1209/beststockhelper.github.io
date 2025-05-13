@@ -50,7 +50,7 @@ function analyze(){
     }
 
     showLoading(true);
-    
+    document.getElementById("stock-symbol").innerHTML = "";
     fetch("https://beststockhelper.onrender.com/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -68,7 +68,6 @@ function analyze(){
         updateHistory(symbol,data.analyze_9);
     })
     .finally(()=>showLoading(false));
-    document.getElementById("stock-symbol").innerHTML = "";
 }
 
 function updateHistory(symbol,opinion){
@@ -107,7 +106,7 @@ function renderHistory(){
     });
 }
 function showPopup(opinionText){
-    const popup = ddocument.getElementById("history-popup");
+    const popup = document.getElementById("history-popup");
     const content = document.getElementById("popup-content");
     content.textContent = opinionText || "（抱歉，腦容量不足，想不起來。）";
     popup.classList.remove("hidden");
