@@ -47,6 +47,10 @@ marked.setOptions({
 });
 
 
+function preprocessMarkdown(md) {
+  return md.replace(/\[[^\]]*\]/g, '');
+}
+
 function analyze(){
     const symbol = document.getElementById("stock-symbol").value.trim();
     if(!symbol){
@@ -64,10 +68,10 @@ function analyze(){
     .then(res => res.json())
     .then(data => {
         //document.getElementById("analyze_normal").textContent = data.analyze_normal || "錯誤：" + data.error;
-        document.getElementById("analyze_normal").innerHTML =  marked.parse(data.analyze_normal);
+        document.getElementById("analyze_normal").innerHTML =  marked.parse(preprocessMarkdown(data.analyze_normal));
         
         //document.getElementById("analyze_9").textContent = data.analyze_9 || "錯誤：" + data.error;
-        document.getElementById("analyze_9").innerHTML =  marked.parse(data.analyze_9);
+        document.getElementById("analyze_9").innerHTML =  marked.parse(preprocessMarkdown(data.analyze_9));
         
         document.getElementById("plt").src = `data:image/png;base64,${data.plt}`;
         updateHistory(symbol,data.analyze_9);
